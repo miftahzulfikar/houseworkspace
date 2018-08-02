@@ -1,0 +1,16 @@
+{
+  "name": "houseworkspace",
+  "version": "1.0.0",
+  "description": "landing page & blog for houseworkspace",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bulma": "^0.7.1",
+    "bulma-extensions": "^2.2.1",
+    "express": "^4.16.3"
+  }
+}
