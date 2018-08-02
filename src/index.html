@@ -55,6 +55,33 @@
           font-size: 1rem;
         }
       }
+
+      .placeholder {
+        background-color: #f6f6f6;
+        /* background-size: cover; */
+        background-repeat: no-repeat;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .placeholder img {
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transition: opacity 1s linear;
+      }
+
+      .placeholder img.loaded {
+        opacity: 1;
+      }
+
+      .img-small {
+        filter: blur(50px);
+        /* this is needed so Safari keeps sharp edges */
+        transform: scale(1);
+      }
     </style>
   </head>
   <body class="has-navbar-fixed-top">
@@ -143,13 +170,19 @@
       </div>
     </nav>
     <section class="hero is-medium has-carousel">
-      <div class="carousel hero-carousel carousel-animated carousel-animate-fade" data-autoplay="true">
+      <div class="carousel hero-carousel carousel-animated carousel-animate-fade">
         <div class='carousel-container'>
-          <div class='carousel-item has-background is-active'>
-            <img class="is-background" src="assets/img/house1.jpg" alt="" />
+          <div class='carousel-item has-background'>
+            <div class="placeholder" data-large="assets/img/house1.jpg">
+              <img src="assets/img/house1-sm.jpg" class="img-small">
+              <div style="padding-bottom: 66.6%;"></div>
+            </div>
           </div>
           <div class='carousel-item has-background'>
-            <img class="is-background" src="assets/img/house2.jpg" alt="" />
+            <div class="placeholder" data-large="assets/img/house2.jpg">
+              <img src="assets/img/house2-sm.jpg" class="img-small">
+              <div style="padding-bottom: 66.6%;"></div>
+            </div>
           </div>
           <div class='carousel-item has-background'>
             <img class="is-background" src="assets/img/home1.jpg" alt="" />
@@ -266,17 +299,26 @@
         </div>
         <div class="columns has-text-centered">
           <div class="column">
-            <img src="assets/img/consulting2.jpg" style="width: inherit" />
+            <div class="placeholder" data-large="assets/img/consulting2.jpg">
+              <img src="assets/img/house1-sm.jpg" class="img-small">
+              <div style="padding-bottom: 66.6%;"></div>
+            </div>
             <h1 class="subtitle">Customer Needs Analysis</h1>
             <p>We analyze your needs, write them every detail and understand them.</p>
           </div>
           <div class="column">
-            <img src="assets/img/drafting.jpg" style="width: inherit" />
+            <div class="placeholder" data-large="assets/img/drafting.jpg">
+              <img src="assets/img/house1-sm.jpg" class="img-small">
+              <div style="padding-bottom: 66.6%;"></div>
+            </div>
             <h1 class="subtitle">Creative Design</h1>
             <p>With our creative team, we’ll give you beyond what you expected, what’s on the trend, within your budget. And most of all, you’ll like it!</p>
           </div>
           <div class="column">
-            <img src="assets/img/constructing.jpg" style="width: inherit" />
+            <div class="placeholder" data-large="assets/img/constructing.jpg">
+              <img src="assets/img/house1-sm.jpg" class="img-small">
+              <div style="padding-bottom: 66.6%;"></div>
+            </div>
             <h1 class="subtitle">Perfect Planning and Execution</h1>
             <p>We make something that we are proud of! Your satisfaction is our priority, we care to build a relationship with you. In planning and execution we try our best to give you perfect timing, perfect team and perfect deliverance to you.</p>
           </div>
@@ -377,34 +419,70 @@
       </div>
     </footer>
 
+      <script>
+        // progressive download image funtion
+        // props: root element
+        const progressiveImage = (el, config = defaultConfig) => {
+          var placeholders = el.querySelectorAll('.placeholder')
+          placeholders.forEach((x,i) => {
+            var small = x.querySelector('.img-small')
+  
+            var img = new Image()
+            img.src = small.src
+            img.onload = () => {
+              small.classList.add('loaded')
+            }
+            
+            if(!config.lazyLoad) {
+              var imgLarge = new Image()
+              imgLarge.src = x.dataset.large
+              imgLarge.onload = () => {
+                imgLarge.classList.add('loaded')
+              }
+              x.appendChild(imgLarge)
+            } else {
+
+            }
+          })
+        }
+        const defaultConfig = {
+          lazyLoad: false,
+          lazyLoadTrigger: () => console.log('lazyLoadTrigger')
+        }
+
+        progressiveImage(document.querySelector('.carousel'))
+
+    </script>
     <script type="text/javascript" src="assets/bulma-carousel/dist/js/bulma-carousel.min.js"></script>
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
 
-      // Get all "navbar-burger" elements
-      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-      // Check if there are any navbar burgers
-      if ($navbarBurgers.length > 0) {
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
 
-        // Add a click event on each of them
-        $navbarBurgers.forEach( el => {
-          el.addEventListener('click', () => {
+          // Add a click event on each of them
+          $navbarBurgers.forEach( el => {
+            el.addEventListener('click', () => {
 
-            // Get the target from the "data-target" attribute
-            const target = el.dataset.target;
-            const $target = document.getElementById(target);
+              // Get the target from the "data-target" attribute
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
 
-            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-            el.classList.toggle('is-active');
-            $target.classList.toggle('is-active');
+              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+              el.classList.toggle('is-active');
+              $target.classList.toggle('is-active');
 
+            });
           });
-        });
-      }
-      
-      var carousels = bulmaCarousel.attach(); // carousels now contains an array of all Carousel instances
+        }
+        
+        var carousels = bulmaCarousel.attach(); // carousels now contains an array of all Carousel instances
+        // console.log(carousels)
+        // temp1[0].on('carousel:slide:before', function(item) { console.log(item) })
       });
     </script>
   </body>
