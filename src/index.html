@@ -54,6 +54,18 @@
         .hw__header__subtitle {
           font-size: 1rem;
         }
+        div.carousel.hero-carousel {
+          display: none !important;
+        }
+      }
+
+      .hw__header__title {
+        /* text-transform: uppercase; */
+        background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        /* font-size: 20vw;
+        font-family: "Poppins", sans-serif; */
       }
 
       .placeholder {
@@ -173,14 +185,14 @@
       <div class="carousel hero-carousel carousel-animated carousel-animate-fade">
         <div class='carousel-container'>
           <div class='carousel-item has-background'>
-            <div class="placeholder" data-large="assets/img/house1.jpg">
-              <img src="assets/img/house1-sm.jpg" class="img-small">
+            <div class="placeholder is-background" data-large="assets/img/house1.jpg">
+              <img src="assets/img/house1-sm.jpg" class="img-small is-background">
               <div style="padding-bottom: 66.6%;"></div>
             </div>
           </div>
           <div class='carousel-item has-background'>
-            <div class="placeholder" data-large="assets/img/house2.jpg">
-              <img src="assets/img/house2-sm.jpg" class="img-small">
+            <div class="placeholder is-background" data-large="assets/img/house2.jpg">
+              <img src="assets/img/house2-sm.jpg" class="img-small is-background">
               <div style="padding-bottom: 66.6%;"></div>
             </div>
           </div>
@@ -422,8 +434,8 @@
       <script>
         // progressive download image funtion
         // props: root element
-        const progressiveImage = (el, config = defaultConfig) => {
-          var placeholders = el.querySelectorAll('.placeholder')
+        const progressiveImage = (config = defaultConfig) => {
+          var placeholders = document.querySelectorAll('.placeholder')
           placeholders.forEach((x,i) => {
             var small = x.querySelector('.img-small')
   
@@ -437,7 +449,7 @@
               var imgLarge = new Image()
               imgLarge.src = x.dataset.large
               imgLarge.onload = () => {
-                imgLarge.classList.add('loaded')
+                imgLarge.classList.add('loaded', 'is-background')
               }
               x.appendChild(imgLarge)
             } else {
