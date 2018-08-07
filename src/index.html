@@ -9,28 +9,31 @@
     <link rel="stylesheet" href="assets/bulma-carousel/dist/css/bulma-carousel.min.css" />
     <style>
       .navbar {
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(255, 255, 255, 1);
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;
       }
+
       .hw__header {
         background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7) ), url('assets/img/banner3.jpg');
         background-repeat: no-repeat;
         margin-top: 52px;
       }
       .hw__header__container {
-        background-color: rgba(255, 255, 255, 0.9);
+        /* background-color: rgba(255, 255, 255, 0.9); */
         max-width: 600px;
         padding: 2rem;
         border-radius: 8px;
         margin-left: 30px;
       }
       .hw__header__title {
-        color: black;
+        color: white;
         font-size: 4rem;
         font-weight: 800;
         font-style: italic;
       }
       .hw__header__subtitle {
         font-size: 1.5rem;
+        color: white;
       }
       .hw__header__button {
         max-width: 250px;
@@ -59,9 +62,10 @@
         }
       }
 
-      .hw__header__title {
+      .text-gradient {
         /* text-transform: uppercase; */
-        background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+        background: linear-gradient(to right, #e24021 0%, #1a14a0 100%);
+        /* background: linear-gradient(to right, #ff3860 0%, #2366d1 100%); */
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         /* font-size: 20vw;
@@ -69,7 +73,7 @@
       }
 
       .placeholder {
-        background-color: #f6f6f6;
+        background-color: black;
         /* background-size: cover; */
         background-repeat: no-repeat;
         position: relative;
@@ -94,13 +98,28 @@
         /* this is needed so Safari keeps sharp edges */
         transform: scale(1);
       }
+
+      .carousel {
+        background-color: black;
+      }
+      .carousel img {
+        opacity: 0.7 !important;
+      }
+      .carousel-nav-right, .carousel-nav-left {
+        background-color: rgba(0, 0, 0, 0) !important;
+        color: white !important;
+      }
+
+      .mb-10 {
+        margin-bottom: 10px !important;
+      }
     </style>
   </head>
   <body class="has-navbar-fixed-top">
     <nav class="navbar is-transparent is-fixed-top">
       <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-          house & workspace
+        <a class="navbar-item text-gradient" href="/" style="font-size: 24px;">
+          H&W
           <!-- <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"> -->
         </a>
         <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
@@ -112,10 +131,12 @@
     
       <div id="navbarExampleTransparentExample" class="navbar-menu">
         <div class="navbar-end">
-          <a class="navbar-item" href="blog/category/our-works/">
+          <!-- <a class="navbar-item" href="blog/category/our-works/"> -->
+          <a class="navbar-item" onclick="scrollMeTo('our-works')">
             Our Works
           </a>
-          <a class="navbar-item" href="blog/category/tutorials">
+          <!-- <a class="navbar-item" href="blog/category/tutorials"> -->
+          <a class="navbar-item" onclick="scrollMeTo('tutorials')">
             Tutorials
           </a>
           <a class="navbar-item" href="/about">
@@ -285,7 +306,9 @@
           <h2 class="subtitle hw__header__subtitle">
             partner with an architech to create the perfect space for you.
           </h2>
-          <button class="button is-dark is-medium hw__header__button">contact us</button>
+          <button class="button is-white is-medium hw__header__button">
+            <span>contact us</span>
+          </button>
         </div>
       </div>
       <!-- <div class="hero-foot">
@@ -306,32 +329,32 @@
     <section class="section">
       <div class="container">
         <div class="content has-text-centered">
-            <h1>How It Works</h1>
+            <h4 class="title is-4 mb-10">How It Works</h4>
             <p>We work within any budget. You can start from scratch or work with a us using your existing spaces.</p>
         </div>
-        <div class="columns has-text-centered">
+        <div class="columns" style="line-height: 1rem;">
           <div class="column">
-            <div class="placeholder" data-large="assets/img/consulting2.jpg">
+            <div class="placeholder mb-10" data-large="assets/img/consulting2.jpg">
               <img src="assets/img/house1-sm.jpg" class="img-small">
               <div style="padding-bottom: 66.6%;"></div>
             </div>
-            <h1 class="subtitle">Customer Needs Analysis</h1>
+            <h6 class="title is-6 mb-10">Customer Needs Analysis</h6>
             <p>We analyze your needs, write them every detail and understand them.</p>
           </div>
           <div class="column">
-            <div class="placeholder" data-large="assets/img/drafting.jpg">
+            <div class="placeholder mb-10" data-large="assets/img/drafting.jpg">
               <img src="assets/img/house1-sm.jpg" class="img-small">
               <div style="padding-bottom: 66.6%;"></div>
             </div>
-            <h1 class="subtitle">Creative Design</h1>
+            <h6 class="title is-6 mb-10">Creative Design</h6>
             <p>With our creative team, we’ll give you beyond what you expected, what’s on the trend, within your budget. And most of all, you’ll like it!</p>
           </div>
           <div class="column">
-            <div class="placeholder" data-large="assets/img/constructing.jpg">
+            <div class="placeholder mb-10" data-large="assets/img/constructing.jpg">
               <img src="assets/img/house1-sm.jpg" class="img-small">
               <div style="padding-bottom: 66.6%;"></div>
             </div>
-            <h1 class="subtitle">Perfect Planning and Execution</h1>
+            <h6 class="title is-6 mb-10">Perfect Planning and Execution</h6>
             <p>We make something that we are proud of! Your satisfaction is our priority, we care to build a relationship with you. In planning and execution we try our best to give you perfect timing, perfect team and perfect deliverance to you.</p>
           </div>
         </div>
@@ -339,7 +362,8 @@
     </section>
     <section class="section">
       <div class="container">
-        <h1 class="title">Latest Project</h1>
+        <h4 id="our-works" class="title is-4">Latest Project</h4>
+        <h6 class="subtitle is-6 mb-10">Lorem ipsum dolor sit amet</h6>
         <div class="columns has-text-centered">
           <div class="column">
             <img src="assets/img/1280x960.png" style="width: inherit" />
@@ -366,23 +390,24 @@
         </div>
       </div>
     </section>
-    <section class="section">
+    <section class="section" style="line-height: 1rem;">
       <div class="container">
-        <h1 class="title">Tutorials</h1>
-        <div class="columns has-text-centered">
+        <h4 id="tutorials" class="title is-4">Tutorials</h4>
+        <h6 class="subtitle is-6 mb-10">lorem ipsum dolor sit amet</h6>
+        <div class="columns">
           <div class="column">
-            <h1 class="subtitle">Customer Needs Analysis</h1>
-            <img src="assets/img/1280x960.png" style="width: inherit" />
+            <img class="mb-10" src="assets/img/1280x960.png" style="width: inherit" />
+            <h6 class="title is-6 mb-10">Customer Needs Analysis</h6>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean congue arcu in nulla rutrum, ac auctor turpis porttitor. In quis velit orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
           </div>
           <div class="column">
-            <h1 class="subtitle">Creative Design</h1>
-            <img src="assets/img/1280x960.png" style="width: inherit" />
+            <img class="mb-10" src="assets/img/1280x960.png" style="width: inherit" />
+            <h6 class="title is-6 mb-10">Creative Design</h6>
             <p>Proin nec malesuada est. Morbi iaculis ligula vitae tellus aliquet lacinia. Morbi posuere mauris nec tellus congue faucibus eget non lectus.</p>
           </div>
           <div class="column">
-            <h1 class="subtitle">Perfect Planning and Execution</h1>
-            <img src="assets/img/1280x960.png" style="width: inherit" />
+            <img class="mb-10" src="assets/img/1280x960.png" style="width: inherit" />
+            <h6 class="title is-6 mb-10">Perfect Planning and Execution</h6>
             <p>Sed gravida sapien dolor, finibus congue odio suscipit sed. Duis rhoncus, elit non volutpat cursus, massa nisi feugiat odio, ut malesuada elit velit sed quam.</p>
           </div>
         </div>
@@ -450,6 +475,7 @@
               imgLarge.src = x.dataset.large
               imgLarge.onload = () => {
                 imgLarge.classList.add('loaded', 'is-background')
+                small.setAttribute('style', 'display: none')
               }
               x.appendChild(imgLarge)
             } else {
@@ -463,6 +489,13 @@
         }
 
         progressiveImage(document.querySelector('.carousel'))
+
+        // scroll into view
+        const scrollMeTo = (id) => {
+          const element = document.getElementById(id)
+          console.log(element)
+          element.scrollIntoView({behavior: "smooth", inline: "nearest"})
+        }
 
     </script>
     <script type="text/javascript" src="assets/bulma-carousel/dist/js/bulma-carousel.min.js"></script>
