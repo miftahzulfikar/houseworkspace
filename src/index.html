@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="assets/css/animate.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/bulma-carousel/dist/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
     <style>
       .navbar {
         background-color: rgba(255, 255, 255, 1);
@@ -38,11 +40,20 @@
       .hw__header__button {
         max-width: 250px;
         width: 80%;
+        border: solid 1px #000 !important;
       }
 
       .column img:hover {
         -webkit-animation: bounce 1s;
         animation: pulse 1s;
+      }
+      
+      @media ( min-width: 769px) {
+        .navbar-item:hover {
+          color: black !important;
+          border-bottom: solid 5px #ff4444;
+          padding-bottom: calc(0.5rem - 5px);
+        }
       }
 
       @media ( max-width: 768px ) {
@@ -53,9 +64,11 @@
         }
         .hw__header__title {
           font-size: 2rem;
+          color: #000;
         }
         .hw__header__subtitle {
           font-size: 1rem;
+          color: #000;
         }
         div.carousel.hero-carousel {
           display: none !important;
@@ -113,6 +126,22 @@
       .mb-10 {
         margin-bottom: 10px !important;
       }
+
+      .slick-prev {
+        left: 0 !important;
+        z-index: 1;
+      }
+      .slick-next {
+        right: 0 !important;
+      }
+
+      .bdr-grey {
+        border: solid 1px #e0e0e0;
+      }
+      .bdr-grey:hover {
+        border-color: #3d218a;
+      }
+
     </style>
   </head>
   <body class="has-navbar-fixed-top">
@@ -334,24 +363,24 @@
         </div>
         <div class="columns" style="line-height: 1rem;">
           <div class="column">
-            <div class="placeholder mb-10" data-large="assets/img/consulting2.jpg">
-              <img src="assets/img/house1-sm.jpg" class="img-small">
+            <div class="placeholder mb-10" data-large="http://res.cloudinary.com/hnw/image/upload/q_auto/v1534239904/dummies/consulting2.webp">
+              <img src="http://res.cloudinary.com/hnw/image/upload/c_thumb,w_200,g_face,q_auto/v1534239904/dummies/consulting2.webp" class="img-small">
               <div style="padding-bottom: 66.6%;"></div>
             </div>
             <h6 class="title is-6 mb-10">Customer Needs Analysis</h6>
             <p>We analyze your needs, write them every detail and understand them.</p>
           </div>
           <div class="column">
-            <div class="placeholder mb-10" data-large="assets/img/drafting.jpg">
-              <img src="assets/img/house1-sm.jpg" class="img-small">
+            <div class="placeholder mb-10" data-large="http://res.cloudinary.com/hnw/image/upload/q_auto/v1534239895/dummies/drafting.webp">
+              <img src="http://res.cloudinary.com/hnw/image/upload/c_thumb,w_200,g_face,q_auto/v1534239895/dummies/drafting.webp" class="img-small">
               <div style="padding-bottom: 66.6%;"></div>
             </div>
             <h6 class="title is-6 mb-10">Creative Design</h6>
             <p>With our creative team, we’ll give you beyond what you expected, what’s on the trend, within your budget. And most of all, you’ll like it!</p>
           </div>
           <div class="column">
-            <div class="placeholder mb-10" data-large="assets/img/constructing.jpg">
-              <img src="assets/img/house1-sm.jpg" class="img-small">
+            <div class="placeholder mb-10" data-large="http://res.cloudinary.com/hnw/image/upload/q_auto/v1534239897/dummies/constructing.webp">
+              <img src="http://res.cloudinary.com/hnw/image/upload/c_thumb,w_200,g_face,q_auto/v1534239897/dummies/constructing.webp" class="img-small">
               <div style="padding-bottom: 66.6%;"></div>
             </div>
             <h6 class="title is-6 mb-10">Perfect Planning and Execution</h6>
@@ -360,41 +389,59 @@
         </div>
       </div>
     </section>
-    <section class="section">
+    <section id="our-works" class="section">
       <div class="container">
-        <h4 id="our-works" class="title is-4">Latest Project</h4>
+        <h4 class="title is-4">Latest Project</h4>
         <h6 class="subtitle is-6 mb-10">Lorem ipsum dolor sit amet</h6>
         <div class="columns has-text-centered">
           <div class="column">
-            <img src="assets/img/1280x960.png" style="width: inherit" />
+            <div class="placeholder bdr-grey" data-large="https://res.cloudinary.com/hnw/image/upload/v1534235128/dummies/12446173_1565103100477488_1670686777_n.jpg">
+              <img src="https://res.cloudinary.com/hnw/image/upload/c_thumb,w_200,g_face/v1534235128/dummies/12446173_1565103100477488_1670686777_n.jpg" class="img-small"/>
+              <div style="padding-bottom: 100%;"></div>
+            </div>
           </div>
           <div class="column">
-            <img src="assets/img/1280x960.png" style="width: inherit" />
-          </div>
-        </div>
-        <div class="columns has-text-centered">
-          <div class="column">
-            <img src="assets/img/1280x960.png" style="width: inherit" />
-          </div>
-          <div class="column">
-            <img src="assets/img/1280x960.png" style="width: inherit" />
+            <div class="placeholder bdr-grey" data-large="https://res.cloudinary.com/hnw/image/upload/v1534235128/dummies/12142605_1694028727521036_760199399_n.jpg">
+              <img src="https://res.cloudinary.com/hnw/image/upload/c_thumb,w_200,g_face/v1534235128/dummies/12142605_1694028727521036_760199399_n.jpg" class="img-small"/>
+              <div style="padding-bottom: 100%;"></div>
+            </div>
           </div>
         </div>
         <div class="columns has-text-centered">
           <div class="column">
-            <img src="assets/img/1280x960.png" style="width: inherit" />
+            <div class="placeholder bdr-grey" data-large="https://res.cloudinary.com/hnw/image/upload/v1534235127/dummies/12547206_1052571484781435_1165363510_n.jpg">
+              <img src="https://res.cloudinary.com/hnw/image/upload/c_thumb,w_200,g_face/v1534235127/dummies/12547206_1052571484781435_1165363510_n.jpg" class="img-small"/>
+              <div style="padding-bottom: 100%;"></div>
+            </div>
           </div>
           <div class="column">
-            <img src="assets/img/1280x960.png" style="width: inherit" />
+            <div class="placeholder bdr-grey" data-large="https://res.cloudinary.com/hnw/image/upload/v1534235124/dummies/12534183_942030769184189_1044484366_n.jpg">
+              <img src="https://res.cloudinary.com/hnw/image/upload/c_thumb,w_200,g_face/v1534235124/dummies/12534183_942030769184189_1044484366_n.jpg" class="img-small"/>
+              <div style="padding-bottom: 100%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="columns has-text-centered">
+          <div class="column">
+            <div class="placeholder bdr-grey" data-large="https://res.cloudinary.com/hnw/image/upload/v1534235124/dummies/12534332_176389369397726_163809920_n.jpg">
+              <img src="https://res.cloudinary.com/hnw/image/upload/c_thumb,w_200,g_face/v1534235124/dummies/12534332_176389369397726_163809920_n.jpg" class="img-small"/>
+              <div style="padding-bottom: 100%;"></div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="placeholder bdr-grey" data-large="https://res.cloudinary.com/hnw/image/upload/v1534235124/dummies/12556092_1679832208956832_1510152962_n.jpg">
+              <img src="https://res.cloudinary.com/hnw/image/upload/c_thumb,w_200,g_face/v1534235124/dummies/12556092_1679832208956832_1510152962_n.jpg" class="img-small"/>
+              <div style="padding-bottom: 100%;"></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="section" style="line-height: 1rem;">
+    <section id="tutorials" class="section" style="line-height: 1rem;">
       <div class="container">
-        <h4 id="tutorials" class="title is-4">Tutorials</h4>
+        <h4 class="title is-4">Tutorials</h4>
         <h6 class="subtitle is-6 mb-10">lorem ipsum dolor sit amet</h6>
-        <div class="columns">
+        <div class=" center" data-slick='{"slidesToShow": 3, "slidesToScroll": 1}'>
           <div class="column">
             <img class="mb-10" src="assets/img/1280x960.png" style="width: inherit" />
             <h6 class="title is-6 mb-10">Customer Needs Analysis</h6>
@@ -410,10 +457,25 @@
             <h6 class="title is-6 mb-10">Perfect Planning and Execution</h6>
             <p>Sed gravida sapien dolor, finibus congue odio suscipit sed. Duis rhoncus, elit non volutpat cursus, massa nisi feugiat odio, ut malesuada elit velit sed quam.</p>
           </div>
+          <div class="column">
+              <img class="mb-10" src="assets/img/1280x960.png" style="width: inherit" />
+              <h6 class="title is-6 mb-10">Customer Needs Analysis</h6>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean congue arcu in nulla rutrum, ac auctor turpis porttitor. In quis velit orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            </div>
+            <div class="column">
+              <img class="mb-10" src="assets/img/1280x960.png" style="width: inherit" />
+              <h6 class="title is-6 mb-10">Creative Design</h6>
+              <p>Proin nec malesuada est. Morbi iaculis ligula vitae tellus aliquet lacinia. Morbi posuere mauris nec tellus congue faucibus eget non lectus.</p>
+            </div>
+            <div class="column">
+              <img class="mb-10" src="assets/img/1280x960.png" style="width: inherit" />
+              <h6 class="title is-6 mb-10">Perfect Planning and Execution</h6>
+              <p>Sed gravida sapien dolor, finibus congue odio suscipit sed. Duis rhoncus, elit non volutpat cursus, massa nisi feugiat odio, ut malesuada elit velit sed quam.</p>
+            </div>
         </div>
       </div>
     </section>
-    <footer class="footer">
+    <footer class="footer" style="background-color: #e0e0e0;">
       <div class="container">
         <div class="columns">
           <div class="column">
@@ -494,11 +556,14 @@
         const scrollMeTo = (id) => {
           const element = document.getElementById(id)
           console.log(element)
-          element.scrollIntoView({behavior: "smooth", inline: "nearest"})
+          element.scrollIntoView({behavior: "smooth", block: 'start'})
         }
 
     </script>
     <script type="text/javascript" src="assets/bulma-carousel/dist/js/bulma-carousel.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
@@ -528,6 +593,32 @@
         var carousels = bulmaCarousel.attach(); // carousels now contains an array of all Carousel instances
         // console.log(carousels)
         // temp1[0].on('carousel:slide:before', function(item) { console.log(item) })
+      });
+
+      $('.center').slick({
+        centerMode: true,
+        centerPadding: '60px',
+        slidesToShow: 3,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: '40px',
+              slidesToShow: 3
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: '40px',
+              slidesToShow: 1
+            }
+          }
+        ]
       });
     </script>
   </body>
